@@ -14,11 +14,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _i = 0;
-  var texts = ['oh','there','you','are','I','just','wanna','say','I', 'Love', 'You'];
+  var _texts = ['oh','there','you','are','I','just','wanna','say','I', 'Love', 'You'];
 
   void _next() {
     setState(() {
-      if (_i < texts.length-1) {
+      if (_i < _texts.length-1) {
         _i++;
       } else {
         _i = 0;
@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       if (_i > 0) {
         _i--;
       } else {
-        _i = texts.length-1;
+        _i = _texts.length-1;
       }
     });
 
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: <Widget>[
-            Question(texts[_i]),
+            Question(_texts[_i]),
             Answer('Next', _next),
             Answer('Before',_before)
           ],
