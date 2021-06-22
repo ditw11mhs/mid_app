@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(
             titleTextStyle: TextStyle(fontStyle: FontStyle.italic),
-            title: Text('Test'),
+            title: Text('Test2'),
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
