@@ -11,17 +11,16 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(
             titleTextStyle: TextStyle(fontStyle: FontStyle.italic),
-            title: Text('Test2'),
+            title: Text('Test4'),
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                'Text1',
-              ),
+              Text('Text4'),
               Text('Text2'),
               Text('Text3'),
+              Text('asd'),
               Row(
                 children: <Widget>[Text('text4'), Text('text5')],
               )
