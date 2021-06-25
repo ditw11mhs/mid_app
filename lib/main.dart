@@ -3,33 +3,55 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int num = 0;
+
+  void addition() {
+    setState(() {
+      num += 10;
+    });
+  }
+
+  void subtraction() {
+    setState(() {
+      num -= 10;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            titleTextStyle: TextStyle(fontStyle: FontStyle.italic),
-            title: Text('Test4'),
-          ),
-          body: Column(
+        appBar: AppBar(
+          title: Text('Test'),
+        ),
+        body: Center(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Text4',
-                  style: GoogleFonts.roboto(
-                      textStyle: TextStyle(
-                          fontSize: 50, fontWeight: FontWeight.w100))),
-              Text('Text2'),
-              Text('Text3'),
-              Text('asd'),
-              Row(
-                children: <Widget>[Text('text4'), Text('text5')],
+              Text(
+                num.toString(),
+                style: TextStyle(fontSize: 10 + num.toDouble()),
+              ),
+              ElevatedButton(
+                onPressed: addition,
+                child: Text('Add'),
+              ),
+              ElevatedButton(
+                onPressed: subtraction,
+                child: Text('Subtract'),
               )
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
