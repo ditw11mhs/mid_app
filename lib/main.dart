@@ -11,7 +11,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int num = 0;
+  List<Widget> _widgets = [];
+
+  int num = 10;
 
   void addition() {
     setState(() {
@@ -25,6 +27,13 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  _MyAppState() {
+    for (int i = 0; i < num; i++) {
+      _widgets.add(Text('Hello' + i.toString()));
+      print(i);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,20 +42,32 @@ class _MyAppState extends State<MyApp> {
           title: Text('Test'),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: <Widget>[
-              Text(
+              Column(children: _widgets),
+              Center(
+                  child: Text(
                 num.toString(),
                 style: TextStyle(fontSize: 10 + num.toDouble()),
-              ),
-              ElevatedButton(
-                onPressed: addition,
-                child: Text('Add'),
-              ),
-              ElevatedButton(
-                onPressed: subtraction,
-                child: Text('Subtract'),
+              )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  ElevatedButton(
+                    onPressed: addition,
+                    child: Text(
+                      'Add',
+                      style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                        color: Colors.blue[50],
+                      )),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: subtraction,
+                    child: Text('Subtract'),
+                  )
+                ],
               )
             ],
           ),
