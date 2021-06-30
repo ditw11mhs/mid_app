@@ -11,8 +11,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> _widgets = [];
-
   int num = 10;
 
   void addition() {
@@ -27,13 +25,6 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  _MyAppState() {
-    for (int i = 0; i < num; i++) {
-      _widgets.add(Text('Hello' + i.toString()));
-      print(i);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,7 +35,7 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: ListView(
             children: <Widget>[
-              Column(children: _widgets),
+              for (var i = 0; i < num; i++) Text('Item $i'),
               Center(
                   child: Text(
                 num.toString(),

@@ -1,5 +1,5 @@
 name: mid_app
-description: Applicatoin for Myocardial Infarction Detector
+description: Application for Myocardial Infarction Detector
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
